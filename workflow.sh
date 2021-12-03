@@ -1,0 +1,10 @@
+#! /bin/sh
+
+set -euo pipefail
+
+DIR=$(pwd)
+
+# Run CORSID
+echo "Begin step 1: CORSID"
+docker run -v ${DIR}/test:/test:rw corsid sh -c "corsid -f /test/NC_045512.fasta -g /test/NC_045512.gff -o /test/test.corsid.json > /test/test.corsid.txt"
+echo "Finished step 1: CORSID"
