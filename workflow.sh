@@ -10,5 +10,5 @@ docker run -v /${DIR}/test:/test:rw --name corsidData corsid sh -c "corsid -f /t
 echo "Finished step 1: CORSID"
 echo "Begin step 2: CORSID-Viz"
 # docker build -t corsid-viz -f corsid_viz.Dockerfile .
-# docker run -v /${DIR}/test:/test:rw corsid-viz
+docker run --rm -v /${DIR}/test:/test:rw -p 8080:8080 corsid-viz
 echo "Finished step 2: CORSID-Viz"

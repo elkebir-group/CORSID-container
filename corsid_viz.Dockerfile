@@ -8,9 +8,14 @@ RUN wget https://github.com/elkebir-group/CORSID-viz/archive/refs/tags/v0.1.0-te
 WORKDIR /CORSID-viz-0.1.0-test
 COPY package*.json ./
 RUN npm install
+COPY . .
+# RUN npm install -g http-server 
+RUN npm install -g @vue/cli
+RUN npm install -g serve
+RUN npx vue-cli-service build --mode singleton
+# CMD ["npm", "run", "serve"]
+CMD ["serve", "-s", "dist"]
 
-COPY . . 
-CMD ["npm", "run", "serve"]
 # RUN npm install -g @vue/cli
 # RUN npm run build
 # npx vue-cli-service build --mode singleton
