@@ -1,20 +1,19 @@
 FROM node:14.14.0
 
 # VOLUME [ "/test" ]
-RUN wget https://github.com/elkebir-group/CORSID-viz/archive/refs/tags/v0.1.0-test.tar.gz && \
-    tar xzf v0.1.0-test.tar.gz
+RUN wget https://github.com/elkebir-group/CORSID-viz/archive/refs/tags/v0.1.0-test2.tar.gz && \
+    tar xzf v0.1.0-test2.tar.gz
 
 # RUN mv ./CORSID-viz-0.1.0-test/ ./corsid-viz
-WORKDIR /CORSID-viz-0.1.0-test
-COPY package*.json ./
+WORKDIR /CORSID-viz-0.1.0-test2
+# COPY package*.json ./
 RUN npm install
-COPY . .
 # RUN npm install -g http-server 
 RUN npm install -g @vue/cli
 RUN npm install -g serve
-RUN npx vue-cli-service build --mode singleton
+# RUN npx vue-cli-service build --mode singleton
 # CMD ["npm", "run", "serve"]
-CMD ["serve", "-s", "dist"]
+# CMD ["serve", "-s", "dist"]
 
 # RUN npm install -g @vue/cli
 # RUN npm run build
