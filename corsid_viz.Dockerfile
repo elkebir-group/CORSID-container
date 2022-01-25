@@ -1,11 +1,11 @@
 FROM node:14.14.0
 
 # VOLUME [ "/test" ]
-RUN wget https://github.com/elkebir-group/CORSID-viz/archive/refs/tags/v0.1.0-test2.tar.gz && \
-    tar xzf v0.1.0-test2.tar.gz
+RUN wget https://github.com/elkebir-group/CORSID-viz/archive/refs/tags/v0.1.0-singleton.tar.gz && \
+    tar xzf v0.1.0-singleton.tar.gz
 
 # RUN mv ./CORSID-viz-0.1.0-test/ ./corsid-viz
-WORKDIR /CORSID-viz-0.1.0-test2
+WORKDIR /CORSID-viz-0.1.0-singleton
 # COPY package*.json ./
 RUN npm install
 # RUN npm install -g http-server 
